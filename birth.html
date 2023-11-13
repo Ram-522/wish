@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Baba!</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        #birthdayCard {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            position: relative;
+            background-image: url("https://cakeiy.com/img/chocolate-round-cake/birthday-cake-name-baba.png");
+            background-size: cover;
+        }
+
+        h1 {
+            background: linear-gradient(to right, #e44d26 50%, rgb(2, 2, 2));
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        #friendName {
+            font-size: 24px;
+            display: inline-block;
+            overflow: hidden;
+            animation: rotateBounce 1s ease-in-out infinite, scaleLetters 2s ease-in-out infinite;
+        }
+
+        #birthdayCard::before {
+            content: "";
+            background: rgba(255, 255, 255, -6);
+            /* Adjust the opacity as needed */
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+
+        @keyframes rotateBounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            40% {
+                transform: translateY(-10px) rotate(10deg);
+            }
+
+            60% {
+                transform: translateY(-5px) rotate(-5deg);
+            }
+        }
+
+        @keyframes scaleLetters {
+            0%, 100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            background: linear-gradient(to right, white 50%, black);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        button {
+            background-color: #e44d26;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #333;
+        }
+
+        .confetti {
+            position: absolute;
+            background: #e44d26;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            animation: fall 2s linear infinite;
+            opacity: 0;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-100vh) rotate(0deg);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 1;
+            }
+        }
+
+        #babaAnimation {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.7);
+            /* Semi-transparent white background */
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        #babaText {
+            font-size: 36px;
+            color: #e44d26;
+            animation: scaleUp 1.5s ease-in-out;
+        }
+
+        @keyframes scaleUp {
+            0%, 100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div id="birthdayCard">
+                    <h1>Happy Birthday, Baba!</h1>
+                    <p>Dear &nbsp; <span id="friendName">
+                            <span style="color:rgb(227, 14, 14)">B</span>
+                            <span style="color:rgb(201, 197, 197)">a</span>
+                            <span style="color:rgb(227, 14, 14)">b</span>
+                            <span style="color:rgb(202, 191, 191)">a</span>
+                        </span>,</p>
+                    <p>Wishing you a day filled with joy, laughter, and all the wonderful things life has to offer. May
+                        this year bring you success and happiness!</p>
+                    <p>Enjoy your special day to the fullest!</p>
+
+                    <!-- Confetti -->
+                    <div class="confetti"></div>
+                    <div class="confetti"></div>
+                    <div class="confetti"></div>
+                    <!-- Add more confetti as needed -->
+
+                    <div style="margin-left: auto; margin-right: auto;">&nbsp; <aside
+                            style="  background: linear-gradient(to right, rgb(230, 60, 60) 50%, black);
+                            -webkit-background-clip: text;
+                            color: transparent;">-from ur frnd<span style="color:black;width:89px;">&hearts;</span></aside>
+                    </div>
+                </div>
+
+                <div id="babaAnimation">
+                    <p id="babaText">Baba!</p>
+                </div>
+
+                <script>
+                    document.getElementById('sendWishesButton').addEventListener('click', function () {
+                        sendWishes();
+                    });
+
+                    function sendWishes() {
+                        alert("Happy Birthday, Baba! 🎉");
+                        showBabaAnimation();
+                        for (let i = 0; i < 10; i++) {
+                            createConfetti();
+                        }
+                    }
+
+                    function showBabaAnimation() {
+                        const babaAnimation = document.getElementById('babaAnimation');
+                        babaAnimation.style.display = 'flex';
+
+                        setTimeout(() => {
+                            hideBabaAnimation();
+                        }, 3000);
+                    }
+
+                    function hideBabaAnimation() {
+                        const babaAnimation = document.getElementById('babaAnimation');
+                        babaAnimation.style.display = 'none';
+                    }
+
+                    function createConfetti() {
+                        const confetti = document.createElement('div');
+                        confetti.classList.add('confetti');
+                        confetti.style.left = Math.random() * window.innerWidth + 'px';
+                        document.body.appendChild(confetti);
+
+                        setTimeout(() => {
+                            confetti.remove();
+                        }, 2000);
+                    }
+                </script>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
